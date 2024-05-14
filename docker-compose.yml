@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  bash_server:
+    build: ./
+    command: ./postgres.sh db ./bash_server
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: localhost
+      DB_PORT: 5436
+      DB_USER: postgres
+      DB_PASSWORD: password
+      DB_NAME: postgres
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    volumes:
+      - ./.database/postgres/data:/var/lib/postgresql/data
+    ports:
+      - "5436:5432"
