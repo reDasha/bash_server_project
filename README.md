@@ -7,6 +7,10 @@
 - Получение списка команд.
 - Получение одной команды.
 
+## Пример работы
+
+<img src=https://github.com/reDasha/bash_server_project/blob/main/screen/screen1.png alt="drawing" width="500"/>
+
 ## Запуск через Docker
 
 ```
